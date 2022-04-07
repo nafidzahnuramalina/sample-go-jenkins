@@ -44,11 +44,6 @@
 
 pipeline {
     agent { dockerfile true }
-    environment {
-        root = "/snap/bin/go"
-        branch = "master"
-        scmUrl = "https://github.com/nafidzahnuramalina/sample-go-jenkins.git"
-    }
     stages {
         stage('Docker') {         
             environment {
@@ -57,6 +52,9 @@ pipeline {
                 // The new variables will always be YOUR_VARIABLE_NAME + _USR and _PSW.
                 // (NOTE 2: You can't print credentials in the pipeline for security reasons.)
                 DOCKER_CREDENTIALS = credentials('my-docker-credentials-id')
+                root = "/snap/bin/go"
+        branch = "master"
+        scmUrl = "https://github.com/nafidzahnuramalina/sample-go-jenkins.git"
             }
 
             steps {                           
