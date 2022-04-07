@@ -74,17 +74,17 @@ pipeline{
     }
     stages{
         stage("Git Clone"){
-            stage{
+            steps{
                 git branch: "${branch}", url: 'https://github.com/nafidzahnuramalina/sample-go-jenkins.git'
             }
         }
         stage("Go Dockerize"){
-            stage{
+            steps{
                 sh "docker build -t sample-go-jenkins ."
             }
         }
         stage("Deploy"){
-            stage{
+            steps{
                 echo 'Deploy Success'
             }
         }
