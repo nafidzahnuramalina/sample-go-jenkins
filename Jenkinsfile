@@ -44,6 +44,11 @@
 
 pipeline {
     agent { dockerfile true }
+    environment {
+        root = "/snap/bin/go"
+        branch = "master"
+        scmUrl = "https://github.com/nafidzahnuramalina/sample-go-jenkins.git"
+    }
     stages {
         stage('Docker') {         
             environment {
